@@ -1,0 +1,10 @@
+Helpful in virtual machine
+WinSCP
+===============================================
+1) Download WinScp software (to transfer data from windows machine to Linux machine)
+
+2) Keep index.html and assets in Ec2 - > Location : var/www/html
+
+Note: If permission not available to store the data then execute below command
+
+$ sudo chmod 777 /var/www/html -R

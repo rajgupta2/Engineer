@@ -35,6 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 #Notes
-public/Notes/*
+
 pages/about.js
-models/*

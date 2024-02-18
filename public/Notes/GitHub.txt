@@ -1,0 +1,96 @@
+pull is a combination of 2 different commands:
+fetch
+merge
+
+Git Fetch
+fetch gets all the change history of a tracked branch/repo.
+So, on your local Git, fetch updates to see what has changed on GitHub:
+
+Example
+git fetch origin
+
+
+GitHub Flow
+The GitHub flow is a workflow designed to work well with Git and GitHub.
+It focuses on branching and makes it possible for teams to experiment freely, and make deployments regularly.
+
+The GitHub flow works like this:
+Create a new Branch
+Make changes and add Commits
+Open a Pull Request
+Review
+Deploy
+Merge
+
+
+
+GitHub Fork
+A fork is a copy of a repository. This is useful when you want to contribute to someone else's project or start your own project based on theirs.
+
+
+Git Clone from GitHub
+
+
+Clone a Fork from GitHub
+Now we have our own fork, but only on GitHub. We also want a clone on our local Git to keep working on it.
+
+
+Configuring Remotes
+
+Let's see how the remotes of this Git is set up:
+git remote -v
+origin  https://github.com/w3schools-test/w3schools-test.github.io.git (fetch)
+origin  https://github.com/w3schools-test/w3schools-test.github.io.git (push)
+We see that origin is set up to the original "w3schools-test" repository, we also want to add our own fork.
+
+First, we rename the original origin remote:
+git remote rename origin upstream
+git remote -v
+upstream        https://github.com/w3schools-test/w3schools-test.github.io.git (fetch)
+upstream        https://github.com/w3schools-test/w3schools-test.github.io.git (push)
+
+Then fetch the URL of our own fork:
+
+And add that as origin:
+git remote add origin https://github.com/kaijim/w3schools-test.github.io.git
+git remote -v
+origin  https://github.com/kaijim/w3schools-test.github.io.git (fetch)
+origin  https://github.com/kaijim/w3schools-test.github.io.git (push)
+upstream        https://github.com/w3schools-test/w3schools-test.github.io.git (fetch)
+upstream        https://github.com/w3schools-test/w3schools-test.github.io.git (push)
+
+According to Git naming conventions, it is recommended to name your own repository origin, and the one you forked for upstream
+Now we have 2 remotes:
+
+origin - our own fork, where we have read and write access
+upstream - the original, where we have read-only access
+Now we are going to make some changes to the code. In the next chapter, we will cover how we suggest those changes to the original repository.
+
+
+GitHub Send Pull Request
+Push Changes to Our GitHub Fork
+We have made a lot of changes to our local Git.
+
+Now we push them to our GitHub fork:
+
+commit the changes:
+git push origin
+Go to GitHub, and we see that the repository has a new commit. And we can send a Pull Request to the original repository:
+Click that and create a pull request:
+Remember to add an explanation for the administrators.
+
+Pull Request is sent:
+
+
+
+Approving Pull Requests
+Now any member with access can see the Pull Request when they see the original repository:
+
+
+And they can see the proposed changes:
+
+Comment on the changes and merge:
+
+Confirm:
+
+And changes have been merged with master:

@@ -1,0 +1,273 @@
+Project Structure
+We will be making a two-page website which should be enough to get us started.
+The first page would be our home page (index.ejs) and that would be the page with the sidebar.
+The second page would be the About page (about.ejs) and that would take a full with.
+
+node <Projectname->app.js> => to start a project
+📂 node_modules
+📂 public
+ 📂 css
+  📜 main.css
+📂 views
+ 🌍 about.ejs
+ 🌍 index.ejs
+ 📂 layouts
+  🌍 full-width.ejs
+  🌍 sidebar.ejs
+ 📂 partials
+  🌍 header.ejs
+  🌍 footer.ejs
+📜 README.md
+🌍 app.js
+📜 package-lock.json
+📜 package-json
+
+
+Let’s build our app.js
+
+JavaScript
+// Imports
+const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
+​
+const app = express()
+const port = 5000 || process.env.PORT
+
+// Static Files
+app.use(express.static('public'))
+
+// Example for other folders - not required
+// app.use('/css', express.static(__dirname + 'public/css'))
+
+// Set Templating Engine
+app.use(expressLayouts)
+app.set('layout', './layouts/full-width')
+app.set('view engine', 'ejs')
+
+// Routes
+app.get('', (req, res) => {
+    res.render('index', { title: 'Home Page'})
+})
+​
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About Page', layout: './layouts/sidebar' })
+})
+​
+// Listen on Port 5000
+app.listen(port, () => console.info(`App listening on port ${port}`))
+
+
+===========>layout full width ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <%- include('../partials/header.ejs') %>
+        <main><%- body %></main>
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+</html>
+
+
+===========>sidebar.ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <%- include('../partials/header.ejs') %>
+        <div class="layout-sidebar">
+            <main><%- body %></main>
+            <side>Sidebar</side>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+</html>
+
+Now that we have the layouts and the CSS let’s add the partials:
+
+==========>header.ejs
+<header>Header</header>
+
+==========>footer.ejs
+<footer>© 2020 Raddy</footer>
+
+==========>index.ejs
+<p>This is the home page and it takes the full width of the layout</p>
+<a href="/about">About</a>
+
+
+==========>about.ejs
+<p>This is the about page. Look it has two columns.</p>
+<p>This is a second paragraph and we can use normal html</p>
+<a href="/">Home</a>
+
+
+Is Node.js A Programming Language?
+Ans:In a word: no.
+
+Node.js is not a programming language. 
+Rather, it’s a runtime environment that’s used to run JavaScript outside the browser.
+Node.js is neither a programming language nor a framework; it’s an environment for them.
+   Note:(A framework is a platform for developing software applications). 
+
+
+=========>Is Node.js Frontend Or Backend?
+A common misconception among developers is that Node.js is a backend framework and is only used for building servers. 
+This isn’t true: Node.js can be used both on the frontend and the backend.
+
+One of the reasons Node.js frameworks are a popular choice for developers building a 
+flexible and scalable backend is its event-driven, non-blocking nature
+
+Node.js is written in C, C++, and JavaScript.
+
+Wikipedia defines Node.js as “a packaged compilation of Google’s V8 JavaScript engine,
+the libuv platform abstraction layer, and a core library, which is itself primarily written in JavaScript.”
+
+The runtime uses Chrome V8 internally, which is the JavaScript execution engine, and it’s also written in C++. This adds additional use cases to Node.js’s repertoire, such as accessing internal system functionality (like networking).
+
+
+
+
+=======>Node.js Architecture and How It Works
+Node.js uses the “Single Threaded Event Loop” architecture to handle multiple clients
+at the same time. To understand how this is different from other runtimes, 
+we need to understand how multi-threaded concurrent clients are handled in languages like Java
+In a multi-threaded request-response model, multiple clients send a request, and the server processes
+each one before sending the response back. However, multiple threads are used to process concurrent calls.
+These threads are defined in a thread pool, and each time a request comes in, an individual thread is assigned to handle it.
+
+
+Node.js works differently. Let’s take a look at each step it goes through:
+
+Node.js maintains a limited thread pool to serve requests.
+Whenever a request comes, Node.js places it into a queue.
+Now, the single-threaded “Event loop”—the core component—comes into the picture. This event loop waits for requests indefinitely.
+When a request comes in, the loop picks it up from the queue and checks whether it requires a blocking input/output (I/O) operation. If not, it processes the request and sends a response.
+If the request has a blocking operation to perform, the event loop assigns a thread from the internal thread pool to process the request. There are limited internal threads available. 
+This group of auxiliary threads is called the worker group.
+The event loop tracks blocking requests and places them in the queue once the blocking task is processed. This is how it maintains its non-blocking nature.
+Since Node.js uses fewer threads, it utilizes fewer resources/memory, resulting in faster task execution.
+ So for our purposes, this single-threaded architecture is equivalent to multi-threaded architecture.
+  When one needs to process data-intensive tasks, then using multi-threaded languages like Java makes much more sense. 
+But for real-time applications, Node.js is the obvious choice.
+
+Features Of Node.js
+
+Node.js has grown quickly in the last few years. This is thanks to the vast list of features it provides:
+
+Easy—Node.js is quite easy to start with. It’s a go-to choice for web development beginners. With a lot of tutorials and a large community—getting started is very easy.
+Scalable—It provides vast scalability for applications. Node.js, being single-threaded, is capable of handling a huge number of simultaneous connections with high throughput.
+Speed—Non-blocking thread execution makes Node.js even faster and more efficient.
+Packages—A vast set of open-source Node.js packages is available that can simplify your work. There are more than one million packages in the NPM ecosystem today.
+Strong backend—Node.js is written in C and C++, which makes it speedy and adds features like networking support.
+Multi-platform—Cross-platform support allows you to create SaaS websites, desktop apps, and even mobile apps, all using Node.js.
+Maintainable—Node.js is an easy choice for developers since both the frontend and backend can be managed with JavaScript as a single language.
+Market Size
+
+
+
+
+Market Size
+There has been immense growth in websites in the last 2 decades, and as expected, Node.js is growing fast as well. The popular runtime already crossed the 1-billion download threshold back in 2018, and according to W3Techs, Node.js is used by 1.2% of all websites everywhere. That’s over 20 million total sites across the internet.
+
+Not surprisingly, it’s a popular selection with millions of companies, too. Here are a few popular ones that use Node.js today:
+
+Twitter
+Spotify
+eBay
+Reddit
+LinkedIn
+Godaddy
+
+
+
+Applications Of Node.js
+ 
+
+Node.js is used for a wide variety of applications. Let’s explore some popular use cases where Node.js is a good choice:
+
+Real-time chats—Due to its single-threaded asynchronous nature, Node.js is well-suited to processing real-time communication. It can easily scale and is often used in building chatbots. Node.js also makes it simple to build additional chat features like multi-person chat and push notifications.
+Internet of Things—IoT applications usually comprise multiple sensors, as they frequently send small chunks of data that can pile into a large number of requests. Node.js is a good choice since it’s able to handle these concurrent requests quickly.
+Data streaming—Companies like Netflix use Node.js for streaming purposes. This is mainly due to Node.js being lightweight and fast, besides which Node.js provides a native streaming API. These streams allow users to pipe requests to each other, resulting in data being streamed directly to its final destination.
+Complex single-page applications (SPAs)—In SPAs, the whole application is loaded in a single page. This usually means there are a couple of requests made in the background for specific components. Node.js’s event loop comes to the rescue here, as it processes requests in a non-blocking fashion.
+REST API-based applications—JavaScript is used both in the frontend and backend of sites. Thus, a server can easily communicate with the frontend via REST APIs using Node.js. Node.js also provides packages like Express.js and Koa that make it even easier to build web applications.
+
+
+What Is NPM?
+NPM is Node.js’s package ecosystem. It is the largest ecosystem of all open-source libraries in the world, with over 1 million packages and growing. NPM is free to use, and thousands of open source developers contribute to it daily.
+
+NPM comes with a command-line utility out-of-box. You can simply head over to the NPM website to search for the package you need, and install it using a single command. You can also manage your package’s versions, review dependencies, and even set up custom scripts in your projects through this command-line utility. Without a doubt, NPM is the most-loved possession of the Node.js community; Node.js attracts a large number of developers due largely to its excellent package support.
+
+
+
+
+
+Popular Packages
+Here are some of the most popular packages for Node.js today:
+
+Express – Express.js, or simply Express, is a Sinatra-inspired web development framework for Node.js, and the de-facto standard for the majority of Node.js applications out there today.
+MongoDB – The official driver to MongoDB. It provides the API for MongoDB object databases in Node.js.
+Socket.io – Socket enables real-time, bidirectional, and event-based communication.
+Lodash – Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+Moment – A JavaScript date library for parsing, validating, manipulating, and formatting dates.
+Commander.js – This is all you need to work and build with command-line interfaces for node.js.
+Forever – A simple CLI tool for ensuring that a given script runs continuously (i.e. forever). Keeps your Node.js process up in production in the face of any unexpected failures.
+Async – A utility module that provides straightforward, powerful functions for working with asynchronous JavaScript.
+Redis – A client library for supporting Redis database integration.
+Mocha – A clean, flexible JavaScript test framework for Node.js and the browser.
+Passport – Simple, unobtrusive authentication for Node.js. Passport’s sole purpose is to authenticate requests.
+
+
+Some examples of node js
+1)
+var http = require('http');
+var dt = require('./myfirstmodule');
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("The date and time are currently: " + dt.myDateTime());
+  res.end();
+}).listen(8080);
+
+
+
+2) 
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+  fs.readFile('demofile1.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
+  });
+}).listen(8080);
+
+
+
+
+
+Commands to run Nodejs file in cmd
+node filename
+Example-node app.js
+
+To install a new package
+npm install packagename
+npm install Upper-Case
+
+
+To create a node project use the command:
+npm init

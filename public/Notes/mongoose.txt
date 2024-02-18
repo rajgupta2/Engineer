@@ -1,0 +1,202 @@
+                            using of mongoose in node application
+                          <=========================================>
+
+connecting to mongodb using mongoose
+========================================>
+    const mongoose =require("mongoose");
+    mongoose.connect("mongodb://127.0.0.1:27017/StudyStudent");
+         Note: The Last name studystudent shows name of database
+    mongoose.set('strictQuery', true);
+
+
+Creating Schema using mongoose.Schema({}) 
+============================================>
+const StudentRegistrationSchema=mongoose.Schema({
+    EnrollmentNumber: String,
+    Name: String,
+    Gender:String,
+    College:String,
+    Course:String,
+    Year:Number,
+    Email:String,
+    Contact:String,
+    Address:String,
+    ProfilePicture:String
+});
+
+Creating Collection using mongoose.model("CollectionName",SchemaNAME);
+========================================================================>
+   const StudentRegistartionData= mongoose.model("StudentRegistartionData",StudentRegistrationSchema);
+
+To insert Entity
+==================>
+   const varname=new collectionvarName({
+        Name:req.body.Name,
+        Email:req.body.Email,
+        Contact:req.body.Contact,
+        Query:req.body.Query
+    });
+	varname.save();
+	
+	//Example
+	 const query=new Query({
+        Name:"Raj",
+        Email:"raj@gmail.com",
+        Contact:"987654321",
+        Query:"Hello G"
+    });
+    query.save();
+	
+To fetch/read Data
+====================>
+    
+    coll_Name.find().then((collData)=>{
+           console.log(collData);
+    }).catch((err)=>{
+        console.log(err);
+    });
+
+    Example
+    ========> 
+    Query.find().then((QueryList)=>{
+
+            QueryList.forEach(function(enquiry){
+                 Console.log(enquiry.Query);
+            });
+        });
+
+To filter the entity
+======================>
+    Model.find()
+       Parameters:
+           filter «Object|ObjectId»
+           [projection] «Object|String|Array[String]» optional fields to return, see Query.prototype.select()
+           [options] «Object» optional see Query.prototype.setOptions()
+           [callback] «Function»
+   
+    Model.findById({
+        query» Object
+    }).then(function(data){
+         console.log(data);
+    }).catch(function(error){
+          console.log(error);
+    });
+         Parameters:
+           id «Any» value of _id to query by
+           
+
+To close the connection
+===========================>
+mongoose.connection.close();
+
+
+To add some validation
+=========================>
+//validation can be added at making schema time
+const querySchema=mongoose.Schema({
+    Name:{
+	type:String,
+	required:[true,"Pls check the entry no name is specified"]
+	},
+    Email:String,
+    Contact:String,
+    Query:String
+});
+
+
+Updating
+==================>
+     Model.updateMany()
+        Parameters:
+           filter «Object» 
+           update «Object|Array»
+           [callback] «Function» params are (error, writeOpResult)
+
+     Example
+     ==========>
+     Query.updateMany({Name:"Raj"},{Query:"..."},function(err){
+          if(err)  console.log(err);
+          else console.log("Successfully updated");
+     });
+
+     TO UPDATE Only one Data
+     =================>
+       Model.updateOne()   
+             Parameters:
+                filter «Object»
+                update «Object|Array»
+                [callback] «Function» params are (error, writeOpResult)
+
+
+        Example
+        =========>
+         Query.updateOne({Name:"Raj"},{Query:"..."},function(err){
+            if(err) console.log(err)
+            else console.log("Successfully updated");
+         });
+
+Deletion
+==============>
+     To delete one entity
+     ======================>
+        Model.deleteOne()
+            Parameters:
+                conditions «Object»
+                [options] «Object» optional see Query.prototype.setOptions()
+                [callback] «Function»
+
+        Example-
+             Query.deleteOne({Name:"Raj"},function(err){
+                if(err) console.log(err)
+                else console.log("Successfully deleted");
+             });
+
+
+    To delete more than one entity
+    ================================>
+       Model.deleteMany()
+         Parameters:
+             conditions «Object»
+             [options] «Object» optional see Query.prototype.setOptions()
+             [callback] «Function»
+
+      Example-
+         Query.updateMany({Name:"Raj"},{Query:"..."},function(err){
+               if(err) console.log(err)
+               else console.log("Successfully deleted");
+         });
+
+
+To count entity 
+====================>
+       Model.countDocuments()
+           Parameters:
+               filter «Object»
+               [callback] «Function»
+
+
+To count entity with some specific condition
+================================================>
+      Example=> To count the order datewise
+               Orders.countDocuments({Date:{}});
+
+
+Relationship
+==============>
+      To communicate between different collection we make relation among them
+      Let's a collection has some features some string ,some data types.
+      When there is a lot of features then it is a good idea to distinguish them making a new relation
+
+          {
+              Name:"Raj",
+              Address:"PNB",
+              fruitLike:"Banana",
+              fruitPrice:50,
+              fruitfeatures:"Make strong"
+          }
+          {
+              Name:"Raj",
+              Address:"PNB",
+              fruitLike:"Banana",
+              fruit:new_coll_Schema i.e. an embedded doc
+          }

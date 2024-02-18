@@ -1,0 +1,338 @@
+Git Basic Commands
+++++++++++++++++++++++++++++++++++++++
+git init 
+git config user.name "Raj_Gupta"
+git config user.email "rajgupta.ckt22@gmail.com"
+git add .  (or) git add -A  
+git status
+git commit -a -m "First times the addition of all files"
+git log --oneline 
+git help --all
+git rm --cached -r .   =>To unstaged all files
+
+
+
+
+
+Git
+===============>
+Git is a version control system that helps you keep track of code changes.
+Git is used to collaborate on code.
+It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.
+It is used for:
+           =>Tracking code changes
+           =>Tracking who made changes
+           =>Coding collaboration
+
+
+What does Git do?
+========================>
+Manage projects with Repositories
+Clone a project to work on a local copy.
+Control and track changes with Staging and Committing
+Branch and Merge to allow for work on different parts and versions of a project
+Pull the latest version of the project to a local copy
+Push local updates to the main project
+
+
+Main Points Of Git
+=======================>
+1) Repositories
+2) Clone=> To pull a remote repository to your local computer is called cloning.
+           use cmd to clone a remote repo=> git clone SpecifiedURL(which u will get from git hub).
+3) Staging and Committing
+4) Branch and Merge
+5) Pull
+6) Push
+
+Working with Git
+===================>
+Initialize Git on a folder, making it a Repository=> git init
+Git now creates a hidden folder to keep track of changes in that folder named .git
+When a file is changed, added or deleted, it is considered modified
+You select the modified files you want to Stage
+The Staged files are Committed, which prompts Git to store a permanent snapshot of the files
+Git allows you to see the full history of every commit.
+You can revert back to any previous commit.
+Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!
+
+
+Why Git?
+==============>
+Over 70% of developers use Git!
+Developers can work together from anywhere in the world.
+Developers can see the full history of the project.
+Developers can revert to earlier versions of a project
+
+Git Install
+You can download Git for free from the following website: https://www.git-scm.com/
+After downloading the git you can check if git is installed or not.
+         git --version
+
+
+How to work with git in an application (working dir=>staging environment=>commit)
+=========================================>
+1) git init =>To Initialize a hidden git repository
+2) Configure Git =>To tell the Git who we are. This is important as each Git commit uses this information:
+              git config --global user.name "w3schools-test"
+              git config --global user.email "test@w3schools.com"
+Note:Use global to set the username and e-mail for every repository on your computer.
+3) git add . => To add all files to a staging environment where git knows about your app files.
+Note: Files in your Git repository folder can be in one of 2 states:
+             Tracked
+             Untracked - files that are in your working directory, but not added to the repository
+4) git status => To views the added,modified and deleted files
+
+
+5)Git Staging Environment=>Staged files are files that are ready to be committed to the repository you are working on.
+                           As you are working, you may be adding, editing and removing files.
+                           But whenever you hit a milestone or finish a part of the work, you should add the files to a Staging Environment.
+                           we add all our files to stagging environment using git add . command.
+
+6)Git Commit
+Adding commits keep track of our progress and changes as we work.
+Git considers each commit change point or "save point".
+It is a point in the project you can go back to if you find a bug, or want to make a change.
+When we commit, we should always include a message.
+           =>git commit -m "First release of Hello World!"
+The commit command performs a commit, and the -m "message" adds a message.
+
+7) Working with Git Branches
+===========================>
+           In Git, a branch is a new/separate version of the main repository.
+           Branches allow you to work on different parts of a project without impacting the main branch.
+           When the work is complete, a branch can be merged with the main project.
+           You can even switch between branches and work on different projects without them interfering with each other.
+
+    Commands related branch
+	===========================>
+        a) git branch branch_name =>Creating new branch
+		b) git checkout branch_name =>To move from current branch to another branch named branch_name
+        c) git branch =>To check the current branch
+		d) git checkout -b branchName=>Using the -b option on checkout will create a new branch, and move to it, if it does not exist
+        e) git merge branch_name=> To add the code of branch_name branch to the current branch.
+        f) git branch -a====>we can use the -a option to see all local and remote branches.
+        g) git branch -d branch_name ====>To delete a branch named branch_name
+
+8) Git Ignore and .gitignore
+===============================>
+    When sharing your code with others, there are often files/folders of your project, you do not want to share.
+        Example-log files, temporary files, hidden files, personal files, secret files
+
+    To acheive this functionality
+	==============================>
+    a) we create a .gitignore file in the working directory.
+    b) And add the files and folders which we dont't want to share with anyone else.
+
+    Writing with .gitignore files to ignore the files/folders
+	===========================================================>
+       a) Write  *.log in .gitignore file to ignore any files with the .log extension.
+       b) To write a comment use #
+	   c) To ignore all files in a directory named temp ==> write temp/ in .gitignore file.
+       d) To ignore ALL .js files====>*.js
+       e) TO ignore ALL files in ANY directory named node_modules==>node_modules/
+
+Note: It is also possible to have additional .gitignore files in subdirectories. These only apply to files or folders within that directory.
+
+
+9)Local and Personal Git Ignore Rules
+=====================================>
+      It is also possible to ignore files or folders but not show it in the distributed .gitignore file.
+      These kinds of ignores are specified in the .git/info/exclude file. It works the same way as .gitignore but are not shown to anyone else.
+
+10) To Push the code in remote repo in GitHub
+      a) Create a Repository on GitHub and copy the repo URL.
+      b) git remote add origin URL===>specifies that you are adding a remote repository.
+	     Example: git remote add origin https://github.com/w3schools-test/hello-world.git
+	  c) git push --set-upstream origin master =====>Now, you can check the gihubt repo that has been updated.
+      
+
+11) Git Pull from github 
+=========================>
+      a) git pull origin (or) git pull===> To pull the changes from your github repo to local repo
+	  b) git log origin/master===>To view the history of github repo.
+	  c) git diff origin/master===>To view the difference between local and remote repo.
+	  d) git merge origin/master===>An another way to pull the changes from remote repo.
+	  
+
+12) Push the local changes to the remote repo
+      git push remote_variable branch_name===>To push the changes from local repo to remote repo.
+             git push origin master -u
+13) Push a new branch to GitHub
+       git push origin branch_name ====>To push an another Branch to GitHub
+
+14) GitHub Flow
+     The GitHub flow is a workflow designed to work well with Git and GitHub.
+     It focuses on branching and makes it possible for teams to experiment freely,and make deployments regularly.
+     The GitHub flow works like this:
+         a)Create a new Branch
+         b)Make changes and add Commits
+         c)Open a Pull Request
+         d)Review
+         e)Deploy
+         f)Merge ==>After exhaustive testing, you can merge the code into the master branch.
+
+15) GitHub Fork
+       A fork is a copy of a repository.
+	   This is useful when you want to contribute to someone else's project or start your own project based on theirs.
+       a) Clone a Fork from GitHub==>Now we have our own fork, but only on GitHub.
+	   b) git clone URL==>clone on our local Git
+              A clone is a full copy of a repository, including all logging and versions of files.
+	   c) git push 
+	   d) create a pull request
+
+16) git remote -v===>To view list of remote
+
+17) git remote rename origin upstream===>To change the name of the original origin
+
+
+18)Git Security SSH
+=====================>
+Up to this point, we have used HTTPS to connect to our remote repository.
+HTTPS will usually work just fine, but you should use SSH if you work with unsecured networks.
+And sometimes, a project will require that you use SSH.
+
+     What is SSH
+	 ============>
+       a) SSH is a secure shell network protocol that is used for network management, remote file transfer, and remote system access.
+       b) SSH uses a pair of SSH keys to establish an authenticated and encrypted secure network protocol. 
+	   c) It allows for secure remote communication on unsecured open networks.
+	   d) SSH keys are used to initiate a secure "handshake". When generating a set of keys, you will generate a "public" and "private" key.
+       e) The "public" key is the one you share with the remote party. Think of this more as the lock.
+       f) The "private" key is the one you keep for yourself in a secure place. Think of this as the key to the lock.
+       g) SSH keys are generated through a security algorithm. It is all very complicated, but it uses prime numbers, and large random numbers to make the public and private key.
+       h) It is created so that the public key can be derived from the private key, but not the other way around.
+
+     Generating an SSH Key Pair
+	 ============================>
+          a) In the command line for Linux, Apple, and in the Git Bash for Windows, you can generate an SSH key.
+          b) Start by creating a new key, using your email as a label:
+               Example- ssh-keygen -t rsa -b 4096 -C "rajgupta.ckt22@gmail.com"
+                         Generating public/private rsa key pair.
+                         Enter file in which to save the key (/Users/user/.ssh/id_rsa):
+                         Created directory '/Users/user/.ssh'.
+                         Enter passphrase (empty for no passphrase):
+                         Enter same passphrase again:
+
+     GitHub Add SSH
+     ====================>
+        a) Copy the SSH Public Key
+        b) In the previous chapter, we created an SSH key pair.
+        c) To open the public key and copy it from terminal.
+            		cat ./ssh/id_rsa.pub 
+	    d) Go to GitHub, click your profile, and select: Settings:
+        e) Then select "SSH and GPG keys". and click the "New SSH key" button:
+        f) Select a title, and paste the public SSH key into the "Key" field, and click "Add SSH Key":
+
+     Test SSH Connection to GitHub
+     ==================================>
+        ssh -T git@github.com
+             The authenticity of host 'github.com (140.82.121.3)' can't be established.
+             RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+             Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+             Warning: Permanently added 'github.com,140.82.121.3' (RSA) to the list of known hosts.
+             Hi w3schools-test! You've successfully authenticated, but GitHub does not provide shell access.
+
+19) Add New GitHub SSH Remote
+     ============================>
+        Now we can add a new remote via SSH to our Git.
+        First, get the SSH address from our repository on GitHub:
+        Get SSH Code Then use that address to add a new origin: git remote add origin SSH_URL
+              Example-git remote add ssh-origin git@github.com:w3schools-test/hello-world.git
+        Note: You can change a remote origin from HTTPS to SSH with the command: 
+		              git remote set-url remote-name git@github.com:username/repository.git
+
+20) Git Revert
+=================>
+        revert is the command we use when we want to take a previous commit and add it as a new commit, keeping the log intact.
+        1) git log --oneline ==> Find the previous commit hash to revert.
+        2) git revert commit_hash --no-edit ===> Revert to the previous commit and make it as a new commit.
+
+        Example
+		=========>
+		1) Let's make a new commit, where we have "accidentally" deleted a file:
+               git commit -m "Just a regular update, definitely no accidents here..."
+        2) To view the previous commit 
+               git log --oneline
+                    52418f7 (HEAD -> master) Just a regular update, definitely no accidents here...
+                    9a9add8 (origin/master) Added .gitignore
+        3) We want to revert to the previous commit: 52418f7 (HEAD -> master) and we see that it is the latest commit.
+		       git revert 52418f7 --no-edit
+           Note: adding the option --no-edit to skip the commit message editor (getting the default revert message):
+        4) Now let's check the commits again
+		       git log --oneline
+                    e56ba1f (HEAD -> master) Revert "Just a regular update, definitely no accidents here..."
+                    52418f7 Just a regular update, definitely no accidents here...
+                    9a9add8 (origin/master) Added .gitignore
+
+21) Git Reset
+===============>
+         we'll go over git reset, which brings the repository back to an earlier state in the commits without making a new commit.
+         reset is the command we use when we want to move the repository back to a previous commit, discarding any changes made after that commit.
+         
+		  1) Find the previous commit: 
+		         git log --oneline
+          2) Move the repository back to that step: 
+		         git reset commit_hash
+		  3) 
+          
+		  Example
+		  =========>
+		  1) git log --oneline
+                 e56ba1f (HEAD -> master) Revert "Just a regular update."
+                 52418f7 Just a regular update, definitely no accidents here...
+                 9a9add8 (origin/master) Added .gitignore
+                 81912ba Corrected spelling error
+           2) We want to return to the commit: 9a9add8 (origin/master)
+		         git reset 9a9add8
+           3) Now let's again check the commit.
+                 git log --oneline
+                    9a9add8 (HEAD -> master, origin/master) Added .gitignore
+                    81912ba Corrected spelling error
+
+Warning: Messing with the commit history of a repository can be dangerous.
+         It is usually ok to make these kinds of changes to your own local repository.
+		 However, you should avoid making changes that rewrite history to remote repositories, 
+		 especially if others are working with them.
+
+
+24) Git Undo Reset
+         Even though the commits are no longer showing up in the log, it is not removed from Git.
+         If you know the commit hash you can reset to it:
+      
+	     Example
+		 =========>
+             git reset e56ba1f
+          Now let's check the log again:
+             git log --oneline
+               e56ba1f (HEAD -> master) Revert "Just a regular update." 
+               52418f7 Just a regular update, definitely no accidents here...
+               9a9add8 (origin/master) Added .gitignore
+               81912ba Corrected spelling error
+
+25) Git Amend
+==============>
+
+   Git commit --amend ==> is used to modify the most recent commit.
+   It combines changes in the staging environment with the latest commit, and creates a new commit.
+   Let's update the README.md and commit:
+      Example
+	  ========>
+	         git commit -m "Adding plines to reddme"
+        Now let's check the log:
+             git log --oneline
+                 07c5bc5 (HEAD -> master) Adding plines to reddme
+                 9a9add8 (origin/master) Added .gitignore
+
+             git commit --amend -m "Added lines to README.md"
+        And re-check the log:
+             git log --oneline
+                 eaa69ce (HEAD -> master) Added lines to README.md
+                 9a9add8 (origin/master) Added .gitignore
+
+
+What is GitHub?
+==================>
+Git is not the same as GitHub.
+GitHub makes tools that use Git.
+GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.

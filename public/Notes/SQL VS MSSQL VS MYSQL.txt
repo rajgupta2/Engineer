@@ -1,0 +1,104 @@
+SQL is a query programming language for managing RDBMS. In contrast, MySQL is an RDBMS (Relational Database Management System) that employs SQL. So, the major difference between the two is that MySQL is software, but SQL is a database language.
+
+
+What is sQl?
+SQL is short for Structured Query Language. As per the ANSI (American National Standards Institute) guidelines, SQL is the standard language to maintain and manage a database. Thus, besides a few minor syntax changes, most of the databases’ queries for retrieving, adding, or manipulating data are based on the standard SQL syntax.
+
+SQL was first developed at IBM. With SQL, you can easily query a database to add, alter, update, or delete data in a plain English-like language. You can use SQL to manage multiple relational database management systems(a tool/software to manages data/database), such as MySQL, SQL Server, Oracle, and MS Access. By writing codes and queries in SQL, you can create and modify any database along with the creation of schemas.
+
+
+What Is MySQL?
+MySQL is a relational database management system developed and released back in 1995. It was developed and sponsored by MySQL AB, which was then acquired by Sun Microsystems, which you know today as Oracle Corporation. MySQL is a combination of ‘My’ (co-founder’s daughter) and ‘SQL.’
+
+
+MySQL was one of the earliest open-source RDBMS to be ever developed and launched. Currently, there are many variants of MySQL. However, the basic syntax of all the variations remains the same. Designed and written in C and C++ programming languages, MySQL is compatible with all primary OS (operating systems). It is a core component of a widely popular open-source web application software stack called LAMP,XAMPP,WAMP, which stands for Linux, Apache, MySQL, PHP/Perl/Python.
+
+
+
+What is the Difference Between SQL and MySQL?
+Now, since you know the basic overview and concept, let’s look at the core differences between SQL and MySQL.
+
+SQL
+MySQL
+SQL is a query programming language that manages RDBMS.
+
+MySQL is a relational database management system that uses SQL.
+
+SQL is primarily used to query and operate database systems.
+
+MySQL allows you to handle, store, modify and delete data and store data in an organized way.
+
+
+
+Mysql vs MSSql
+MySQL is an open-source relational database management system (RDBMS), and MSSQL Server is an RDBMS developed by Microsoft
+
+
+
+MSSQL vs MySQL: Similarities
+MySQL and MSSQL Server share some similarities, as they are both relational databases.However MySQL and MSSQL may appear similar, the architecture they are built upon is different.
+
+Let’s cover the major similarities first:
+
+Tables:MySQL and MSSQL utilize the standard table model for column-and-row-based data storage found in relational databases.
+
+Quality Performance:As databases are responsible for both retrieving and storing data in the shortest time possible, they are your applications’ backbone. Fortunately, MySQL and MSSQL Server provide high-quality performance speeds.
+
+Keys
+MySQL and MSSQL leverage both primary and foreign keys for creating relationships between tables.
+
+
+Online Success and Popularity
+With regards to running web applications, MySQL and MSSQL Server are the most widely used databases (with the exception of Oracle). You will typically be offered a choice of MySQL vs MSSQL when you sign up for a hosting service.
+
+Convenient Scalability
+MySQL and MSSQL have the ability to scale with your business as it continues to grow. They can be used for projects of all sizes, capable of supporting millions of daily transactions.
+
+
+Syntax
+Both platforms share a similar syntax, though there are some minor differences across create, read, update, and delete (CRUD) statements.
+
+
+MSSQL vs MySQL: Differences
+Yes, MySQL and MSSQL Server may be similar in multiple ways, primarily with regards to their interfaces and basic standards, but they operate in significantly different ways. 
+ The majority of these differences are related to the architecture and occur behind the scenes,so the average user will typically not notice them.
+
+
+Operating System Compatibility
+MSSQL Server was developed by Microsoft for Windows OS only, but it has since made RDBMS available for both Linux and Mac OS too. 
+
+However, MySQL offers smooth performance on several well-known operating systems such as Windows, Mac OS X, and Linux.
+
+Quality Support
+MySQL works with PHP natively and MSSQL Server is primarily used with .NET. If you rely on MySQL for PHP and MSSQL Server for Windows projects only, you can expect simpler integration.
+
+
+Affordability
+As MySQL is open source, it’s a free option, but you will need to pay for support when necessary. However, with MSSQL, you will require licenses for servers running the platform, which makes it more costly.
+
+
+LINQ
+As MSSQL Server lets you configure your entity framework classes in .NET, you may begin with LINQ queries. But you would have to download third-party tools instead for using .NET with MySQL.
+
+Binary Collections
+Both MySQL and MSSQL Server were made as binary collections. MySQL lets developers utilize binaries for manipulating database files while running, and database files can also be manipulated by alternative processes at runtime.
+
+On the other hand, MSSQL Server prevents processes from manipulating or accessing binaries or database files. You would be required to run an instance if you intended to achieve this. As a result, hackers will be unable to perform any direct data manipulation — or even access it in the first place. Overall, MSSQL Server offers tighter security than MySQL.
+
+
+Data Backup
+You should extract your data as SQL statements to back it up when using MySQL. The RDBMS provides you with a tool for blocking the database while your data is backed up, which minimizes the risk of data becoming corrupted when switching between different editions or versions of MySQL.
+
+The drawback of this is that restoring data becomes a time-consuming task, as you would need to execute several SQL statements. But MSSQL Server doesn’t block the database during data backup, which allows users to backup and restore huge amounts of data with ease.
+
+
+Freedom to End Query Execution
+
+Users cannot cancel a query after it begins running on MySQL: you would need to kill the whole process. But MSSQL Server lets users truncate database queries while running without requiring the whole process to be killed.
+
+
+Furthermore, MSSQL Server incorporates a transactional engine for maintaining a consistent state. That provides MSSQL Server with a key advantage over MySQL.
+
+
+
+

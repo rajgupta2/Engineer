@@ -1,0 +1,162 @@
+//To use mongodb in an application We have two choices :
+         1) Mongo DB driver=>uses same commands as in mongo shell
+         2) mongoose
+
+//Learning Mongodb in mongo Shell
+        To run mongodb cmd in shell(cmd), type: mongosh
+
+Some Basic command of Mongodb 
+++++++++++++++++++++++++++++++++++++++++
+      1) show dbs => To show database directory.
+      2) use <db_name>=> To create a new database./To go from one database to another one.
+      3) db => to know in which db you are.
+      4) show collections=> show collections(tables) in current database
+      5) To delte an entire database ,firstly switch to that database then use
+              db.dropDatabase()
+      6) db.coll_name.dropDatabase()To delete a collection
+
+      7) To create a collection named posts
+              db.createCollection("posts")
+
+
+Create Collection
+===================>
+       1) db.createCollection("posts")
+       2) You can also create a collection during the insert process.
+          db.collection_name.insertOne(object)
+
+Insertion
+============>
+To insert the data into a collection
+              a) db.collection_name.insertOne({
+                        //data in key value pair
+                 }) 
+              b) db.collection_name.insertMany([  
+                        {//data},
+                        {//data },
+                        {//data}...
+                 ])
+       
+
+Selection /Finding /Fetching
+=============================>
+               a)  db.collectionName.find()=>To select data from a collection
+           Note:This method accepts a query object. If left empty, all documents will be returned.
+
+               b) db.collectionName.findOne()=>
+                   To select only one document, we can also use the findOne() method.
+           Note:This method accepts a query object. If left empty, it will return the first document it finds.
+
+          Querying(Filter Data)
+          ======================>
+               db.collectionNmae.find({//Query in key value pair})
+                  Example- db.Tbl_LoginData.find({Email:"raj@gmail.com" })
+
+          Projection
+          ===============>
+            1) Both find methods accept a second parameter called projection.
+            2) This parameter is an object that describes which fields to include in the results.
+               db.posts.find({}, {title: 1, date: 1})
+                  =>This will show result with title and date
+               db.posts.find({}, {_id: 0, title: 1, date: 1})
+                  =>This will show result with title and date and not show _id.
+            3)We use a 1 to include a field and 0 to exclude a field.
+
+
+
+
+
+Updation
+===========>
+       1) db.collectionNmae.updateOne({
+                a query object to define which documents should be updated.
+             },
+             {
+               // second parameter is an object defining the updated data
+          })
+       
+       2) db.collectionName.updateMany({Query_object},{Property_object})
+
+       3) Now let's update Password of a document. To do this, we need to use the $set operator.
+
+            db.collectionName.updateOne( {
+                    Email:"raj@gmail.com" 
+                }
+               ,{
+                      $set:{  Password:"RAm@gmail1234"  }
+            })
+
+
+
+Deletion
+===========>
+        db.coll_name.deleteOne({//Query data})=>
+               The deleteOne() method will delete the first document that matches the query provided.
+        db.coll_name.deleteMany({//Query Data})
+
+
+MongoDB Query Operators
+=============================>
+       There are many query operators that can be used to compare and reference document fields.
+       
+       Comparision Operators
+       ========================>
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+
+        Logical
+        ============>
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+
+         Evaluation
+         ============>
+$regex: Allows the use of regular expressions when evaluating field values
+$text: Performs a text search
+$where: Uses a JavaScript expression to match documents
+
+
+          MongoDB Update Operators
+          ==========================>
+$currentDate: Sets the field value to the current date
+$inc: Increments the field value
+$rename: Renames the field
+$set: Sets the value of a field
+$unset: Removes the field from the document
+
+
+
+Some Others commands which are rear used
+============================================>
+         show
+         =======>
+           'show databases'/'show dbs': Print a list of all available databases.
+           'show collections'/'show tables': Print a list of all collections for current database.
+           'show profile': Prints system.profile information.
+           'show users': Print a list of all users for current database.
+           'show roles': Print a list of all roles for current database.
+           'show log <type>': log for current connection, if type is not set uses 'global'
+           'show logs': Print all logs.
+
+    exit    Quit the MongoDB shell with exit/exit()/.exit
+    quit    Quit the MongoDB shell with quit/quit()
+    Mongo   Create a new connection and return the Mongo object. Usage: new Mongo(URI, options [optional])
+    connect Create a new connection and return the Database object. Usage: connect(URI, username [optional], password [optional])
+    it      result of the last line evaluated; use to further iterate
+    version Shell version
+    load    Loads and runs a JavaScript file into the current shell environment
+    enableTelemetry    Enables collection of anonymous usage data to improve the mongosh CLI
+    disableTelemetry   Disables collection of anonymous usage data to improve the mongosh CLI
+    passwordPrompt     Prompts the user for a password
+    sleep              Sleep for the specified number of milliseconds
+    print              Prints the contents of an object to the output
+    printjson          Alias for print()
+    cls                Clears the screen like console.clear()
+    isInteractive      Returns whether the shell will enter or has entered interactive mode
