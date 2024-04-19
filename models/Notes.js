@@ -58,25 +58,35 @@ var Notes=[
         Subject: "XAMPP",
         Description: "A set of tools",
         Notes: "/Notes/XAMPP.txt",
-        Tutorial: "https://www.javatpoint.com/xampp"
+        Tutorial: "https://www.javatpoint.com/xampp",
     },
     {
         Subject: "C# with OOPS",
         Description: "A Programming Language",
         Notes: "/Notes/C-sharp.pdf",
-        Tutorial: "https://www.tutorialsteacher.com/csharp"
+        Tutorial: "https://www.tutorialsteacher.com/csharp",
     },
     {
-        Subject: ".Net MVC",
+        Subject: "ASP .Net MVC",
         Description: "Let's create an application using C#",
         Notes: "/Notes/dotNet MVC.pdf",
-        Tutorial: "https://www.tutorialsteacher.com/mvc"
+        Tutorial: "https://www.tutorialsteacher.com/mvc",
+    },{
+        Subject: "LINQ",
+        Description: "Check out LINQ extension methods",
+        Tutorial:"https://www.tutorialsteacher.com/linq/what-is-linq"
+    },
+    {
+        Subject: "Secrets in ASP .NET MVC ",
+        Description: "Check out the 4th Section",
+        Tutorial: "https://www.c-sharpcorner.com/UploadFile/37db1d/looking-inside-web-config-configuration-file-in-Asp-Net-3-5/",        
     },
     {
         Subject: "Node js",
         Description: "A run time environment for JavaScript",
         Notes: "/Notes/Nodejs.pdf",
-        Tutorial: "/Notes/nodejs.txt"
+        Tutorial: "/Notes/nodejs.txt",
+        Practice:"https://www.tutorialspoint.com/nodejs/index.htm"
     },
     {
         Subject: "WinSCP",

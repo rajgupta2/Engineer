@@ -21,9 +21,12 @@ const card =function(props){
             (props.Practice) ? <Link href={`${props.Practice}`} onClick={props.onClick} target="_blank" className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Practice</Link> : <span></span>
           }
         </div>
-        <div className="px-6 pb-2 ">
-          <span className=' float-right pb-2 '>By Raj Gupta</span>
-        </div>
+        {
+          (props.By) ? <div className="px-6 pb-2 ">
+                       <span className=' float-right pb-2 '>By Raj Gupta</span>
+                       </div>
+                      : <span></span>
+        }
       </div>
     </>
   )
