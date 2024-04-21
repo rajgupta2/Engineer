@@ -37,3 +37,4 @@ next-env.d.ts
 #Notes
 
 pages/about.js
+public/bootstrap-icons/*

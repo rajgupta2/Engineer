@@ -3,12 +3,11 @@ import HomeLayout from '@components/homeLayout';
 import Card from '@components/card';
 import Notes from '@models/Notes';
 import {useState} from 'react';
+ 
 
-
-function index() {
-
-  const [cardHide_Show,displaycard]=useState("grid");
-  const [IframeHide_Show,displayiframe]=useState("none");
+function Index() {
+    const [cardHide_Show,displaycard]=useState("grid");
+    const [IframeHide_Show,displayiframe]=useState("none");
   
   function cardclick(event){
     var isPdf=event.target.href.indexOf("pdf");
@@ -45,4 +44,4 @@ function index() {
   )
 
 }
-export default index;
+export default Index;
