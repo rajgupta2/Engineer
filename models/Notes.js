@@ -96,7 +96,7 @@ var Notes=[
      {
         Subject: "Git", 
         Description: "Expanding Philanthropy and the Social Economy",
-        Notes: "/Notes/git.txt", 
+        Notes: "/Notes/Git.txt", 
         Tutorial: "https://www.w3schools.com/git/default.asp?remote:github",
         Practice: "https://www.w3schools.com/git/default.asp?remote:github"
     },
