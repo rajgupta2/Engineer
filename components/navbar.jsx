@@ -1,15 +1,30 @@
 import Link from 'next/link';
+import {useState} from 'react';
+
 const navbar = () => {
+  const [Title, ChangeTitle] = useState("");
+  const [i, Changei] = useState(0);
+  function Control() {
+     var msg = "Engineer";
+     var Tetle = msg[i];
+     Changei(i+1);
+     ChangeTitle(Title+ Tetle);
+    if (i == msg.length){
+       Changei(0);
+       ChangeTitle("");
+     }
+  }
+  setInterval(Control,3000);
   return (
     <div className='row-auto'>
         <div className='bg-slate-300 p-5 -z-40 ' style={{"position":"fixed","left":"0","top":"0","right":"0"}}>
-           <div className='inline-block columns-2'>
-           <Link href="/" className='text-3xl p-5 text-center font-bold'>Engineer</Link>
+           <div className='columns-2 w-8 inline'>
+           <Link href="/" className='text-3xl p-5 text-center font-bold'>{Title}|</Link>
            </div>
            <div className='inline columns-4'>
             <p className='pb-0 text-sm' style={{display:'inline'}}>Connect us:  </p>
                 <Link href="https://www.youtube.com/@RajGupta-tz7dq/videos" className="p-2"><i className="bi bi-youtube text-xl" style={{color:'#dd3427'}} ></i></Link>
-                <Link href="https://www.github.com/rajgupta2?tab=repositories" className="p-2"><i className="bi bi-github text-xl" style={{color:'#2b3137'}} ></i></Link>
+                <Link href="https://www.github.com/rajgupta2/" className="p-2"><i className="bi bi-github text-xl" style={{color:'#2b3137'}} ></i></Link>
                 <Link href="https://www.linkedin.com/in/raj-gupta-6b5655291" target='_blank' className="p-2"><i className="bi bi-linkedin text-xl" style={{color:'#347dc0'}}  ></i></Link>
            </div>
         </div>

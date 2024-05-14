@@ -1,5 +1,4 @@
 "use client";
-import HomeLayout from '@components/homeLayout';
 import Card from '@components/card';
 import Notes from '@models/Notes';
 import {useState} from 'react';
@@ -32,7 +31,6 @@ function Index() {
     });
   }
   return (
-    <HomeLayout>
       <main className='lg:ml-24 lg:mr-24 mt-24'>
         <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-12 mb-24' style={{display:cardHide_Show}}>
           <MakeCard />
@@ -40,7 +38,6 @@ function Index() {
         <div onClick={back_to_home} style={{cursor:"pointer"}}>Back_to_home</div>
         <iframe style={{display:IframeHide_Show,minHeight:560}} id='Iframe' name="iframe_value" className='border bg-white border-black w-full overflow-auto'></iframe>
       </main>
-    </HomeLayout>
   )
 
 }
