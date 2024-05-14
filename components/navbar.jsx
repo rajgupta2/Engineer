@@ -1,25 +1,11 @@
 import Link from 'next/link';
-import {useState} from 'react';
 
 const navbar = () => {
-  const [Title, ChangeTitle] = useState("");
-  const [i, Changei] = useState(0);
-  function Control() {
-     var msg = "Engineer";
-     var Tetle = msg[i];
-     Changei(i+1);
-     ChangeTitle(Title+ Tetle);
-    if (i == msg.length){
-       Changei(0);
-       ChangeTitle("");
-     }
-  }
-  setInterval(Control,3000);
   return (
     <div className='row-auto'>
         <div className='bg-slate-300 p-5 -z-40 ' style={{"position":"fixed","left":"0","top":"0","right":"0"}}>
            <div className='columns-2 w-8 inline'>
-           <Link href="/" className='text-3xl p-5 text-center font-bold'>{Title}|</Link>
+           <Link href="/" className='text-3xl p-5 text-center font-bold'>Engineer</Link>
            </div>
            <div className='inline columns-4'>
             <p className='pb-0 text-sm' style={{display:'inline'}}>Connect us:  </p>
