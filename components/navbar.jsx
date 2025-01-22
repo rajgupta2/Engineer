@@ -9,8 +9,8 @@ const navbar = () => {
            </div>
            <div className='inline columns-4'>
             <p className='pb-0 text-sm' style={{display:'inline'}}>Connect us:  </p>
-             /*   <Link href="https://www.youtube.com/@RajGupta-tz7dq/videos" className="p-2"><i className="bi bi-youtube text-xl" style={{color:'#dd3427'}} ></i></Link>
-               */ <Link href="https://www.github.com/rajgupta2/" className="p-2"><i className="bi bi-github text-xl" style={{color:'#2b3137'}} ></i></Link>
+             <!--   <Link href="https://www.youtube.com/@RajGupta-tz7dq/videos" className="p-2"><i className="bi bi-youtube text-xl" style={{color:'#dd3427'}} ></i></Link>
+               --> <Link href="https://www.github.com/rajgupta2/" className="p-2"><i className="bi bi-github text-xl" style={{color:'#2b3137'}} ></i></Link>
                 <Link href="https://www.linkedin.com/in/raj-gupta-6b5655291" target='_blank' className="p-2"><i className="bi bi-linkedin text-xl" style={{color:'#347dc0'}}  ></i></Link>
            </div>
         </div>
