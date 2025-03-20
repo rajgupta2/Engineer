@@ -3,7 +3,7 @@
 **Engineer** is a project designed for organizing and sharing study materials, notes, and tutorials. Built with **Next.js**, it provides an organized way to manage and access study materials. 
 
 ## 🌐 Live Demo
-- **Hosted on GitHub Pages**: [View Here](https://rajgupta2.github.io)
+- **Hosted on GitHub Pages**: [View Here](https://rajgupta2.github.io/Engineer/)
 - **Project UI Overview (YouTube)**: [Watch Video](https://youtu.be/rQkK3G8do0U?si=VIXiMDeWeyTOUuCe)
 
 ---
@@ -23,7 +23,7 @@ Follow these steps to set up and run the project locally.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/rajgupta2/rajgupta2.github.io
+git clone https://github.com/rajgupta2/Engineer.git
 cd rajgupta2.github.io
 ```
 
@@ -51,7 +51,7 @@ Click on the **Fork** button at the top right of this repository to create a cop
 Run the following command to clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/rajgupta2.github.io
+git clone https://github.com/your-username/Engineer.git
 #Replace your-username with your actual GitHub username.
 ```
 
