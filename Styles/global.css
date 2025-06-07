@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  /* background: radial-gradient(circle, #121212,#1F1B24, bg-indigo-300);
+  @apply bg-indigo-300 text-gray-800 transition-all duration-300 !important; */
+}

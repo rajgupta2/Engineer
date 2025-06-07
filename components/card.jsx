@@ -3,7 +3,7 @@ import Link from "next/link";
 const card =function(props){
   return (
     <>
-      <div  className="border border-black rounded-3xl m-4 hover:bg-zinc-400">
+      <div className=" border bg-white shadow-xl  rounded-3xl m-4 transition hover:scale-110" >
         <div className="px-6 py-4">
           <div className="text-3xl text-center py-4 justify-self-center border-b border-black">{props.Subject}</div>
           <p className="text-gray-700 pt-5 text-xl">
