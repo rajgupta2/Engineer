@@ -30,7 +30,7 @@ function Index() {
     });
   }
   return (
-      <main className='sm:mx-28 mt-12'>
+      <main className='sm:mx-12 sm:mt-12 mt-16'>
         <div className='grid  md:grid-cols-2 lg:grid-cols-3 mb-8 gap-8' style={{display:cardHide_Show}}>
           <MakeCard />
         </div>

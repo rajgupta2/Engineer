@@ -6,3 +6,12 @@ body {
   /* background: radial-gradient(circle, #121212,#1F1B24, bg-indigo-300);
   @apply bg-indigo-300 text-gray-800 transition-all duration-300 !important; */
 }
+.feature-card {
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #a7aade, #8f94fb);
+}
