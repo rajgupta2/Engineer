@@ -15,7 +15,7 @@ const navbar = () => {
             */
           }
           <Link href="https://www.github.com/rajgupta2/" className="p-2"><i className="bi bi-github text-xl"></i></Link>
-          <Link href="https://www.linkedin.com/in/raj-gupta-6b5655291" target='_blank' className="p-2"><i className="bi bi-linkedin text-xl" style={{ color: '#347dc0' }}  ></i></Link>
+          <Link href="https://www.linkedin.com/in/raj-gupta-ckt" target='_blank' className="p-2"><i className="bi bi-linkedin text-xl" style={{ color: '#347dc0' }}  ></i></Link>
         </div>
       </div>
   )
